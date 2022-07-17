@@ -9,8 +9,6 @@ A
 gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4
 7
 gradlew,5\b\5bbfa66edb4db3c7c33c5181f43510990d3307f9
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 }
 Mapp/src/androidTest/java/com/dimitrisligi/alagenta/ExampleInstrumentedTest.kt,9\c\9cb016dc35cc40cf0e26da07861a075862c0d39e
 n
