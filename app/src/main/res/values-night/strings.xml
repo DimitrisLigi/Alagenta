@@ -1,7 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ALAGENTA</string>
     <string name="tx_signIn">Είσοδος</string>
-    <string name="tx_email">email</string>
     <string name="tx_password">Κωδικός</string>
     <string name="tx_google_account_login_text">Είσοδος μέσω Google Account</string>
 </resources>
