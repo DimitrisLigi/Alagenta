@@ -5,4 +5,7 @@
     <string name="tx_password">Κωδικός</string>
     <string name="tx_google_account_login_text">Είσοδος μέσω Google Account</string>
     <string name="tx_create_account">Δεν έχεις λογαριασμο; Δημιούργησε εδώ.</string>
+    <string name="tx_create_account_banner">Δημιουργία Λογαριασμού</string>
+    <string name="tx_password_confirmation">Επαλήθευση κωδικού</string>
+    <string name="tx_i_have_already_an_account">Έχω ήδη λογαριασμό.</string>
 </resources>

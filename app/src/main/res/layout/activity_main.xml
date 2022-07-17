@@ -54,7 +54,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:backgroundTint="#292828"
+        android:backgroundTint="#282828"
         android:elevation="3dp"
         android:text="@string/tx_signIn"
         app:layout_constraintEnd_toEndOf="@+id/et_password"
