@@ -2,5 +2,6 @@
 <resources>
     <string name="tx_signIn">Είσοδος</string>
     <string name="tx_password">Κωδικός</string>
+    <string name="tx_email">e-mail</string>
     <string name="tx_google_account_login_text">Είσοδος μέσω Google Account</string>
 </resources>

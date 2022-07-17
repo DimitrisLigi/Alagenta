@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SignUpActivity">
 
     <TextView
         android:id="@+id/tv_SignInBanner"
@@ -50,7 +50,7 @@
         android:importantForAutofill="no" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -67,19 +67,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
+        android:contentDescription="TODO"
+        app:layout_constraintStart_toStartOf="@+id/btn_login"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login"
         app:srcCompat="@drawable/common_google_signin_btn_icon_light" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_login_with_google_account_banner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/tx_google_account_login_text"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/btn_google_login"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="@+id/btn_login"
         app:layout_constraintStart_toEndOf="@+id/btn_google_login"
         app:layout_constraintTop_toTopOf="@+id/btn_google_login" />
+
+    <TextView
+        android:id="@+id/tv_create_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/tx_create_account"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_login_with_google_account_banner"
+        app:layout_constraintStart_toStartOf="@+id/btn_google_login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
