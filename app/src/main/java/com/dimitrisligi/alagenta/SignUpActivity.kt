@@ -1,5 +1,6 @@
 package com.dimitrisligi.alagenta
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -27,6 +28,23 @@ class SignUpActivity : AppCompatActivity() {
             else if (pass.isEmpty()){
                 Toast.makeText(this,"Παρακαλώ συμπληρώστε τον κωδικό σας",Toast.LENGTH_LONG).show()
             }
+            firebaseAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener {
+                when{
+                    it.isSuccessful -> {Toast.makeText(this,"Login Successful!",Toast.LENGTH_SHORT).show()}
+                    it.isComplete ->{
+                        //TODO FETCH USERS DATA
+                        val mainCalendarIntent = Intent(this,MainCalendarActivity::class.java)
+                        startActivity(mainCalendarIntent)
+                    }
+                }
+            }.addOnFailureListener {
+                Toast.makeText(this,it.toString(),Toast.LENGTH_LONG).show()
+            }
+        }
+
+        binding.tvCreateAccount.setOnClickListener {
+            val myIntent = Intent(this,RegisterActivity::class.java)
+            startActivity(myIntent)
         }
     }
 }

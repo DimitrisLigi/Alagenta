@@ -19,7 +19,6 @@ android {
         //Philipp Lancker API KEY
         Properties properties = new Properties()
         properties.load(project.rootProject.file("local.properties").newDataInputStream())
-
         buildConfigField "String", "API_KEY", "\"${properties.getProperty("API_KEY")}\""
 
     }
