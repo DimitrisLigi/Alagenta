@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var firebaseAuth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         // the onCreate function
         // Note: Please, do NOT add useless comments
@@ -20,28 +21,32 @@ class SignUpActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.btnLogin.setOnClickListener {
-            val email = binding.etEmail.text.toString().trim()
-            val pass = binding.etPassword.text.toString().trim()
-
-
-            if(email.isEmpty()){
-                Toast.makeText(this,"Παρακαλώ συμπληρώστε το email σας",Toast.LENGTH_LONG).show()
-            }
-            else if (pass.isEmpty()){
-                Toast.makeText(this,"Παρακαλώ συμπληρώστε τον κωδικό σας",Toast.LENGTH_LONG).show()
-            }
-            firebaseAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener {
-                when{
-                    it.isSuccessful -> {Toast.makeText(this,"Login Successful!",Toast.LENGTH_SHORT).show()}
-                    it.isComplete ->{
-                        //TODO FETCH USERS DATA
-                        val mainCalendarIntent = Intent(this,MainCalendarActivity::class.java)
-                        startActivity(mainCalendarIntent)
-                    }
-                }
-            }.addOnFailureListener {
-                Toast.makeText(this,it.toString(),Toast.LENGTH_LONG).show()
-            }
+//            val email = binding.etEmail.text.toString().trim()
+//            val pass = binding.etPassword.text.toString().trim()
+//
+//
+//            if(email.isEmpty()){
+//                Toast.makeText(this,"Παρακαλώ συμπληρώστε το email σας",Toast.LENGTH_LONG).show()
+//                return@setOnClickListener
+//            }
+//            else if (pass.isEmpty()){
+//                Toast.makeText(this,"Παρακαλώ συμπληρώστε τον κωδικό σας",Toast.LENGTH_LONG).show()
+//                return@setOnClickListener
+//            }
+//            firebaseAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener {
+//                when{
+//                    it.isSuccessful -> {Toast.makeText(this,"Login Successful!",Toast.LENGTH_SHORT).show()}
+//                    it.isComplete ->{
+//                        //TODO FETCH USERS DATA
+//                        val mainCalendarIntent = Intent(this,MainCalendarActivity::class.java)
+//                        startActivity(mainCalendarIntent)
+//                    }
+//                }
+//            }.addOnFailureListener {
+//                Toast.makeText(this,it.toString(),Toast.LENGTH_LONG).show()
+//            }
+            val mainCalendarIntent = Intent(this,MainCalendarActivity::class.java)
+            startActivity(mainCalendarIntent)
         }
 
         binding.tvCreateAccount.setOnClickListener {
