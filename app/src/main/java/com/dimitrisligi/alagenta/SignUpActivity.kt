@@ -12,7 +12,7 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         // the onCreate function
-        //AMXXMXMXMXMXMXMXMX
+        // Note: Please, do NOT add useless comments
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
