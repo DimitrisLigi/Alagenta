@@ -17,9 +17,12 @@ class MainCalendarActivity : AppCompatActivity() {
     private lateinit var mEventList: MutableList<Event>
 
 
+    private var temp = 0
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mEventList = mutableListOf()
+        mEventList = dumbData()
         mBinding = ActivityMainCalendarBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
         mBinding.calendarView
@@ -50,4 +53,18 @@ class MainCalendarActivity : AppCompatActivity() {
         }
     }
 
+
+    private fun dumbData():MutableList<Event>{
+        val list = mutableListOf<Event>()
+        list.add(Event("Kalavritwn 12","Episkeui","12:00"))
+        list.add(Event("Axeloou 132","Sita","12:00"))
+        list.add(Event("Pelopida 112","Episkeui","12:00"))
+        list.add(Event("Axeloou 312","Prosfora","12:00"))
+        list.add(Event("Kalavritwn 112","Sita","12:00"))
+        list.add(Event("Pelopida 124","Metra","12:00"))
+        list.add(Event("Mixalidi 11","Prosfora","12:00"))
+        list.add(Event("Kalavritwn 1","Episkeui","12:00"))
+        list.add(Event("Pelopida 2","Metra","12:00"))
+        return list
+    }
 }
