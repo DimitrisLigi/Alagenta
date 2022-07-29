@@ -20,3 +20,11 @@ X
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+[
++app/src/main/java/models/MosquitoNetType.kt,5\4\548c584f79b2a9b14c07d03c178ee2253c0716a3
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+m
+=app/src/main/java/com/dimitrisligi/alagenta/SignUpActivity.kt,e\1\e1631851c58aeae8c963c0d079cd9995943b4c22
+o
+?app/src/main/java/com/dimitrisligi/alagenta/RegisterActivity.kt,f\8\f89818e7f1a51262f9c76a4e28ca078e282ec7f0

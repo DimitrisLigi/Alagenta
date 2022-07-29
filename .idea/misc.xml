@@ -3,11 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Dimitris/AndroidStudioProjects/ALAGENTA/app/src/main/res/drawable/ic_add_event.xml" value="0.372" />
         <entry key="..\:/Users/Dimitris/AndroidStudioProjects/ALAGENTA/app/src/main/res/layout-land/activity_register.xml" value="0.31746031746031744" />
         <entry key="..\:/Users/Dimitris/AndroidStudioProjects/ALAGENTA/app/src/main/res/layout/activity_main.xml" value="0.2703125" />
-        <entry key="..\:/Users/Dimitris/AndroidStudioProjects/ALAGENTA/app/src/main/res/layout/activity_main_calendar.xml" value="0.3654891304347826" />
+        <entry key="..\:/Users/Dimitris/AndroidStudioProjects/ALAGENTA/app/src/main/res/layout/activity_main_calendar.xml" value="0.37135416666666665" />
         <entry key="..\:/Users/Dimitris/AndroidStudioProjects/ALAGENTA/app/src/main/res/layout/activity_register.xml" value="0.375" />
         <entry key="..\:/Users/Dimitris/AndroidStudioProjects/ALAGENTA/app/src/main/res/layout/recycler_view_item.xml" value="0.375" />
+        <entry key="..\:/Users/Dimitris/AndroidStudioProjects/ALAGENTA/app/src/main/res/layout/recycler_view_item_1.xml" value="0.1625" />
       </map>
     </option>
   </component>
