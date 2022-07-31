@@ -34,6 +34,7 @@ class CalendarAppointmentListAdapter(private val eventList: MutableList<Event>):
         holder.mEventAddress?.text = currentEventItem.address
         holder.mEventTime?.text = currentEventItem.time
         holder.mEventDescription?.text = currentEventItem.description
+
     }
 
     override fun getItemCount(): Int {

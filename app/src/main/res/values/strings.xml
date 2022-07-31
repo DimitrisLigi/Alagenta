@@ -8,4 +8,12 @@
     <string name="tx_create_account_banner">Δημιουργία Λογαριασμού</string>
     <string name="tx_password_confirmation">Επαλήθευση κωδικού</string>
     <string name="tx_i_have_already_an_account">Έχω ήδη λογαριασμό.</string>
+    <string name="tx_event_reason_banner">Λόγος Επίσκεψης</string>
+    <string name="tx_address_hint">Οδός</string>
+    <string name="tx_register_client_banner">Φόρμα πελάτη</string>
+    <string name="tx_ring_name">Κουδούνι</string>
+    <string name="tx_client_name">Όνομα</string>
+    <string name="tx_mobilehome">Κινητό/Σταθερό</string>
+    <string name="tx_register_client_btn">Εγγραφή</string>
+    <string name="tx_client_area">Περιοχή</string>
 </resources>

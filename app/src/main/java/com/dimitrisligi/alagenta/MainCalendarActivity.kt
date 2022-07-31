@@ -1,11 +1,9 @@
 package com.dimitrisligi.alagenta
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import android.widget.GridLayout
-import android.widget.LinearLayout
 import android.widget.Toast
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dimitrisligi.alagenta.databinding.ActivityMainCalendarBinding
 import models.Event
@@ -37,7 +35,8 @@ class MainCalendarActivity : AppCompatActivity() {
     //Add Event BUTTON
     private fun addNewEvent() {
         mBinding.btnAddEvent.setOnClickListener {
-
+            val toRegisterNewClientIntent = Intent(this,ClientRegisterActivity::class.java)
+            startActivity(toRegisterNewClientIntent)
         }
     }
 
