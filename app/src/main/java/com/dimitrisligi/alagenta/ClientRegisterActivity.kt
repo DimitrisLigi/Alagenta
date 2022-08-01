@@ -7,16 +7,20 @@ import com.dimitrisligi.alagenta.databinding.ActivityClientRegisterBinding
 import db.ClientDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.launch
 import models.Client
 
 class ClientRegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityClientRegisterBinding
     private lateinit var clientDB: ClientDatabase
+    @OptIn(InternalCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityClientRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        clientDB = ClientDatabase.getClientDatabase(this)
 
         binding.btnRegisterNewClient.setOnClickListener {
             createClient()

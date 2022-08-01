@@ -41,12 +41,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:autofillHints="name"
         android:hint="@string/tx_client_area"
+        android:inputType="text"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/et_client_address"
         app:layout_constraintStart_toStartOf="@+id/et_client_address"
-        app:layout_constraintTop_toBottomOf="@+id/et_client_address"
-        android:autofillHints="name"
-        android:inputType="text"/>
+        app:layout_constraintTop_toBottomOf="@+id/et_client_address" />
 
     <EditText
         android:id="@+id/et_client_name"
@@ -54,36 +55,39 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:autofillHints="name"
         android:hint="@string/tx_client_name"
+        android:inputType="text"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/et_client_area"
         app:layout_constraintStart_toStartOf="@+id/et_client_area"
-        app:layout_constraintTop_toBottomOf="@+id/et_client_area"
-        android:autofillHints="name"
-        android:inputType="text" />
+        app:layout_constraintTop_toBottomOf="@+id/et_client_area" />
 
     <EditText
         android:id="@+id/et_client_ring"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:autofillHints="name"
         android:hint="@string/tx_ring_name"
+        android:inputType="text"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/et_client_name"
         app:layout_constraintStart_toStartOf="@+id/et_client_name"
-        app:layout_constraintTop_toBottomOf="@+id/et_client_name"
-        android:autofillHints="name"
-        android:inputType="text"/>
+        app:layout_constraintTop_toBottomOf="@+id/et_client_name" />
 
     <EditText
         android:id="@+id/et_client_phone_number"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:autofillHints="name"
         android:hint="@string/tx_mobilehome"
+        android:inputType="text"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/et_client_ring"
         app:layout_constraintStart_toStartOf="@+id/et_client_ring"
-        app:layout_constraintTop_toBottomOf="@+id/et_client_ring"
-        android:autofillHints="name"
-        android:inputType="text" />
+        app:layout_constraintTop_toBottomOf="@+id/et_client_ring" />
 
     <Button
         android:id="@+id/btn_register_new_client"

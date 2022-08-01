@@ -26,3 +26,21 @@ Q
 !app/src/main/java/models/Event.kt,d\d\dddb9ef89fdfbc7dc5a83dbb2493bd4914868714
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+o
+?app/src/main/java/com/dimitrisligi/alagenta/RegisterActivity.kt,f\8\f89818e7f1a51262f9c76a4e28ca078e282ec7f0
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+}
+Mapp/src/main/java/com/dimitrisligi/alagenta/CalendarAppointmentListAdapter.kt,1\7\1700c9117d68fb6da05330de4959e7d28ee7744d
+R
+"app/src/main/java/models/Client.kt,0\7\0718f281ab29d005166c4aeac1a8c07588dcd330
+R
+"app/src/main/java/dao/ClientDao.kt,7\e\7e4aec40dc1a4d8adcb54373ea1754e65302558c
+V
+&app/src/main/java/db/ClientDatabase.kt,f\c\fce07764b2852e3a9dd503732f22e011473ddaf9
+u
+Eapp/src/main/java/com/dimitrisligi/alagenta/ClientRegisterActivity.kt,1\7\17d802ee35638ad43d529025ba41223dd68abc94
+s
+Capp/src/main/java/com/dimitrisligi/alagenta/MainCalendarActivity.kt,e\d\ed27e43c7741305543d5ae02e0bd7191374b4483
