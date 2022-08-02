@@ -6,10 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.dimitrisligi.alagenta.databinding.ActivityClientRegisterBinding
 import db.ClientDatabase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.InternalCoroutinesApi
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import models.Client
 
 class ClientRegisterActivity : AppCompatActivity() {
@@ -46,23 +43,43 @@ class ClientRegisterActivity : AppCompatActivity() {
             GlobalScope.launch(Dispatchers.IO){
                 clientDB.clientDao().insertClient(client)
             }
-            Toast.makeText(this@ClientRegisterActivity,"Ο πελάτης δημιουργήθηκε με επιτυχία!",Toast.LENGTH_SHORT).show()
-            writeData()
+            binding.etClientAddress.text.clear()
+            binding.etClientArea.text.clear()
+            binding.etClientRing.text.clear()
+            binding.etClientName.text.clear()
+            binding.etClientPhoneNumber.text.clear()
 
+            Toast.makeText(this@ClientRegisterActivity,
+                "Ο πελάτης δημιουργήθηκε με επιτυχία!",Toast.LENGTH_SHORT).show()
 
-            val calendarIntent = Intent(this@ClientRegisterActivity,MainCalendarActivity::class.java)
-            startActivity(calendarIntent)
         }else{
-            Toast.makeText(this@ClientRegisterActivity,"Παρακαλώ συμπληρώστε όλα τα στοιχεία!",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@ClientRegisterActivity,
+                "Παρακαλώ συμπληρώστε όλα τα στοιχεία!",Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun writeData() {
-
-    }
 
     private fun readData(){
 
+        val queryPhoneNumber = binding.etQueryNumber.text.toString()
+        if (queryPhoneNumber.isNotEmpty()){
+            lateinit var client: Client
 
+            GlobalScope.launch {
+                client = clientDB.clientDao().findByPhone(queryPhoneNumber)
+                displayClient(client)
+            }
+        }
+
+    }
+
+    private suspend fun displayClient(client: Client) {
+        withContext(Dispatchers.Main){
+            binding.etClientAddress.setText(client.address)
+            binding.etClientName.setText(client.name)
+            binding.etClientRing.setText(client.ringName)
+            binding.etClientPhoneNumber.setText(client.phone)
+            binding.etClientArea.setText(client.area)
+        }
     }
 }

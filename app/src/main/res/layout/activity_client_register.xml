@@ -106,10 +106,23 @@
         android:id="@+id/btn_read_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="4dp"
         android:text="Read Data"
         app:layout_constraintEnd_toEndOf="@+id/btn_register_new_client"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/btn_register_new_client"
         app:layout_constraintTop_toBottomOf="@+id/btn_register_new_client" />
+
+    <EditText
+        android:id="@+id/et_query_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="QueryNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_read_data" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
