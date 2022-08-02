@@ -1,0 +1,6 @@
+
+Tkotlin:S1172,"7Use "_" instead of this unused lambda parameter "view".(´™˜Ëúÿÿÿÿ
+Fkotlin:S1481/")Remove this unused "MDom" local variable.(ØÉ°ëüÿÿÿÿ
+Hkotlin:S1481."+Remove this unused "mMonth" local variable.(É½„åÿÿÿÿÿ
+Bkotlin:S1481-"*Remove this unused "mYear" local variable.(î·±‡
+okotlin:S117/"SRename this local variable to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(ØÉ°ëüÿÿÿÿ
