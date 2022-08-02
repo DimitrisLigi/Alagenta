@@ -1,5 +1,6 @@
 package com.dimitrisligi.alagenta
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -25,6 +26,9 @@ class ClientRegisterActivity : AppCompatActivity() {
         binding.btnRegisterNewClient.setOnClickListener {
             createClient()
         }
+        binding.btnReadData.setOnClickListener {
+            readData()
+        }
 
     }
 
@@ -43,9 +47,22 @@ class ClientRegisterActivity : AppCompatActivity() {
                 clientDB.clientDao().insertClient(client)
             }
             Toast.makeText(this@ClientRegisterActivity,"Ο πελάτης δημιουργήθηκε με επιτυχία!",Toast.LENGTH_SHORT).show()
+            writeData()
+
+
+            val calendarIntent = Intent(this@ClientRegisterActivity,MainCalendarActivity::class.java)
+            startActivity(calendarIntent)
         }else{
             Toast.makeText(this@ClientRegisterActivity,"Παρακαλώ συμπληρώστε όλα τα στοιχεία!",Toast.LENGTH_SHORT).show()
-
         }
+    }
+
+    private fun writeData() {
+
+    }
+
+    private fun readData(){
+
+
     }
 }

@@ -102,4 +102,14 @@
         app:layout_constraintStart_toStartOf="@+id/et_client_phone_number"
         app:layout_constraintTop_toBottomOf="@+id/et_client_phone_number" />
 
+    <Button
+        android:id="@+id/btn_read_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Read Data"
+        app:layout_constraintEnd_toEndOf="@+id/btn_register_new_client"
+        app:layout_constraintStart_toStartOf="@+id/btn_register_new_client"
+        app:layout_constraintTop_toBottomOf="@+id/btn_register_new_client" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

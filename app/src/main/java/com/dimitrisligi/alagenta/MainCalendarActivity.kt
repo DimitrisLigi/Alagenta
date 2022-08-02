@@ -20,11 +20,14 @@ class MainCalendarActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //Initializing the recyclerview with dummy data
         mEventList = dumbData()
         mBinding = ActivityMainCalendarBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
         mBinding.calendarView
+        //Toasting the pressing dates
         setupCalendar()
+
         mEventList.add(Event("LKfalaf","AKSDFKASDKF","01:00"))
         mBinding.recyclerView.layoutManager = LinearLayoutManager(this)
         mBinding.recyclerView.adapter = CalendarAppointmentListAdapter(mEventList)
