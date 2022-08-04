@@ -10,8 +10,10 @@ import kotlinx.coroutines.*
 import models.Client
 
 class ClientRegisterActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityClientRegisterBinding
     private lateinit var clientDB: ClientDatabase
+
     @OptIn(InternalCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,13 +53,14 @@ class ClientRegisterActivity : AppCompatActivity() {
 
             Toast.makeText(this@ClientRegisterActivity,
                 "Ο πελάτης δημιουργήθηκε με επιτυχία!",Toast.LENGTH_SHORT).show()
+            val toCalendarActivityIntent = Intent(this,MainCalendarActivity::class.java)
+            startActivity(toCalendarActivityIntent)
 
         }else{
             Toast.makeText(this@ClientRegisterActivity,
                 "Παρακαλώ συμπληρώστε όλα τα στοιχεία!",Toast.LENGTH_SHORT).show()
         }
     }
-
 
     private fun readData(){
 

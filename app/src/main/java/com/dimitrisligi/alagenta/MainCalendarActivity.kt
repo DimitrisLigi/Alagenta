@@ -6,6 +6,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dimitrisligi.alagenta.databinding.ActivityMainCalendarBinding
+import db.ClientDatabase
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.InternalCoroutinesApi
+import kotlinx.coroutines.launch
+import models.Client
 import models.Event
 
 class MainCalendarActivity : AppCompatActivity() {
@@ -14,28 +19,43 @@ class MainCalendarActivity : AppCompatActivity() {
     //The list that recyclerView uses.
     private lateinit var mEventList: MutableList<Event>
 
+    private lateinit var mClientList: List<Client>
 
+    private lateinit var clientDB: ClientDatabase
+    //TODO: DELETE THIS
     private var temp = 0
 
 
+    @OptIn(InternalCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //Initializing the recyclerview with dummy data
-        mEventList = dumbData()
+//        mEventList = dumbData()
+        clientDB = ClientDatabase.getClientDatabase(this)
+        GlobalScope.launch {
+            mClientList = clientDB.clientDao().getAllClients()
+        }
+
         mBinding = ActivityMainCalendarBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
         mBinding.calendarView
         //Toasting the pressing dates
         setupCalendar()
+        getTheClients()
 
-        mEventList.add(Event("LKfalaf","AKSDFKASDKF","01:00"))
         mBinding.recyclerView.layoutManager = LinearLayoutManager(this)
-        mBinding.recyclerView.adapter = CalendarAppointmentListAdapter(mEventList)
+        mBinding.recyclerView.adapter = ClientListAdapter(mClientList)
         addNewEvent()
     }
 
+    @OptIn(InternalCoroutinesApi::class)
+    private fun getTheClients() {
 
-    //Add Event BUTTON
+
+    }
+
+
+    //Add Event
     private fun addNewEvent() {
         mBinding.btnAddEvent.setOnClickListener {
             val toRegisterNewClientIntent = Intent(this,ClientRegisterActivity::class.java)
