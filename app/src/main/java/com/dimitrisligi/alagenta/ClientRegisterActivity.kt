@@ -6,13 +6,18 @@ import android.os.Bundle
 import android.widget.Toast
 import com.dimitrisligi.alagenta.databinding.ActivityClientRegisterBinding
 import db.ClientDatabase
+import db.EventDatabase
 import kotlinx.coroutines.*
+import models.AppointmentType
 import models.Client
+import models.Event
 
 class ClientRegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityClientRegisterBinding
     private lateinit var clientDB: ClientDatabase
+    private lateinit var eventDB: EventDatabase
+    private var choosenDate: String? =  null
 
     @OptIn(InternalCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +25,10 @@ class ClientRegisterActivity : AppCompatActivity() {
         binding = ActivityClientRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        choosenDate = intent.getStringExtra("choosenDate")
+
         clientDB = ClientDatabase.getClientDatabase(this)
+        eventDB = EventDatabase.getEventDatabase(this)
 
         binding.btnRegisterNewClient.setOnClickListener {
             createClient()
@@ -31,6 +39,7 @@ class ClientRegisterActivity : AppCompatActivity() {
 
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     private fun createClient(){
 
         val address = binding.etClientAddress.text.trim().toString()
@@ -42,8 +51,10 @@ class ClientRegisterActivity : AppCompatActivity() {
         if (address.isNotEmpty() && area.isNotEmpty() && name.isNotEmpty() && ring.isNotEmpty()
             && phone.isNotEmpty()){
             val client = Client(null,address,area,name,ring,phone)
+            val event = Event(null,address,AppointmentType.MEASUREMENT,choosenDate)
             GlobalScope.launch(Dispatchers.IO){
                 clientDB.clientDao().insertClient(client)
+                eventDB.eventDao().insertEvent(event)
             }
             binding.etClientAddress.text.clear()
             binding.etClientArea.text.clear()
@@ -85,4 +96,6 @@ class ClientRegisterActivity : AppCompatActivity() {
             binding.etClientArea.setText(client.area)
         }
     }
+
+
 }

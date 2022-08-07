@@ -25,7 +25,8 @@ class CalendarAppointmentListAdapter(private val eventList: MutableList<Event>):
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.recycler_view_item,parent,false)
+        val itemView = LayoutInflater.from(parent.context)
+            .inflate(R.layout.recycler_view_item,parent, false)
         return ViewHolder(itemView)
     }
 
@@ -33,7 +34,7 @@ class CalendarAppointmentListAdapter(private val eventList: MutableList<Event>):
         val currentEventItem = eventList[position]
         holder.mEventAddress?.text = currentEventItem.address
         holder.mEventTime?.text = currentEventItem.time
-        holder.mEventDescription?.text = currentEventItem.description
+        holder.mEventDescription?.text = currentEventItem.appointmentType.type.toString()
 
     }
 
