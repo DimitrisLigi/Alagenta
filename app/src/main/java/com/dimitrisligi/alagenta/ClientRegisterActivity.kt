@@ -67,7 +67,7 @@ class ClientRegisterActivity : AppCompatActivity() {
         val phone = binding.etClientPhoneNumber.text.trim().toString()
 
         if (address.isNotEmpty() && area.isNotEmpty() && name.isNotEmpty() && ring.isNotEmpty()
-            && phone.isNotEmpty() && chosenTime.isNullOrEmpty()){
+            && phone.isNotEmpty() && chosenTime!!.isNotEmpty()){
             val client = Client(null,address,area,name,ring,phone)
             val event = Event(null,address,AppointmentType.MEASUREMENT,chosenTime,chosenDate)
             GlobalScope.launch(Dispatchers.IO){

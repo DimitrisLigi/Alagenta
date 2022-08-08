@@ -50,9 +50,7 @@ class MainCalendarActivity : AppCompatActivity() {
 //        mEventList = dumbData()
         eventDB = EventDatabase.getEventDatabase(this)
         updateToCurrentDate()
-//        clientDB = ClientDatabase.getClientDatabase(this)
         GlobalScope.launch {
-//            mClientList = clientDB.clientDao().getAllClients()
             mEventList = eventDB.eventDao().getAllEvents()
         }
         mBinding = ActivityMainCalendarBinding.inflate(layoutInflater)
@@ -97,8 +95,15 @@ class MainCalendarActivity : AppCompatActivity() {
         mBinding.calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
             chosenDate = year.toString() + (month + 1).toString() + dayOfMonth.toString()
             //Note that months are indexed from 0. So, 0 means January, 1 means february, 2 means march etc.
-            Toast.makeText(this@MainCalendarActivity, chosenDate, Toast.LENGTH_SHORT).show()
+            changeRecyclerViewAdapter(chosenDate)
         }
     }
 
+    private fun changeRecyclerViewAdapter(chosenDate: String?){
+        if (chosenDate == null) return
+        GlobalScope.launch{
+            mEventList = eventDB.eventDao().findByDate(chosenDate)
+        }
+        mBinding.recyclerView.adapter = EventAdapter(mEventList)
+    }
 }

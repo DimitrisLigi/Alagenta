@@ -9,7 +9,7 @@ interface EventDao {
     fun getAllEvents(): List<Event>
 
     @Query("SELECT * FROM event_table WHERE event_time LIKE :queryDate LIMIT 1")
-    suspend fun findByDate(queryDate: String): Event
+    suspend fun findByDate(queryDate: String): List<Event>
 
     @Insert(onConflict= OnConflictStrategy.IGNORE)
     suspend fun insertEvent(event: Event)
