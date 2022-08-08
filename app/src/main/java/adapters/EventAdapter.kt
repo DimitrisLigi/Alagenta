@@ -1,22 +1,23 @@
-package com.dimitrisligi.alagenta
+package adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.dimitrisligi.alagenta.R
 import models.Event
 
 /*  This adapter is so awesome that can take a list as an argument, and populate that list on the
     RecyclerView
 * */
-class CalendarAppointmentListAdapter(private val eventList: MutableList<Event>):
-    RecyclerView.Adapter<CalendarAppointmentListAdapter.ViewHolder>()
+class EventAdapter(private val eventList: List<Event>):
+    RecyclerView.Adapter<EventAdapter.ViewHolder>()
 {
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
         val mEventAddress: TextView? = itemView.findViewById(R.id.tv_eventAddress)
-        val mEventDescription: TextView? = itemView.findViewById(R.id.tv_event_description)
+        val mEventDescription: TextView? = itemView.findViewById(R.id.tv_event_type)
         val mEventTime: TextView? = itemView.findViewById(R.id.tv_event_time)
 //        val mTime: TextView? = itemView.findViewById(R.id.tv_event_time)
 //        val mEventDescription: TextView? = itemView.findViewById(R.id.tv_event_description)

@@ -8,4 +8,5 @@ import androidx.room.PrimaryKey
 data class Event(@PrimaryKey(autoGenerate = true) val eventID: Int?,
                 @ColumnInfo(name = "event_address") var address: String?,
                 @ColumnInfo(name = "event_type") var appointmentType: AppointmentType,
-                @ColumnInfo(name = "event_time") var time: String?)
+                @ColumnInfo(name = "event_time") var time: String?,
+                @ColumnInfo(name = "event_date") var date: String?)
