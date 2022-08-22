@@ -43,11 +43,10 @@ class MainCalendarActivity : AppCompatActivity() {
 
 
 
+
     @OptIn(InternalCoroutinesApi::class, DelicateCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //Initializing the recyclerview with dummy data
-//        mEventList = dumbData()
         eventDB = EventDatabase.getEventDatabase(this)
         updateToCurrentDate()
         GlobalScope.launch {
@@ -61,7 +60,7 @@ class MainCalendarActivity : AppCompatActivity() {
 //        getTheClients()
         mBinding.recyclerView.layoutManager = LinearLayoutManager(this)
 //        mBinding.recyclerView.adapter = ClientListAdapter(mClientList,this)
-        mBinding.recyclerView.adapter = EventAdapter(mEventList)
+        mBinding.recyclerView.adapter = EventAdapter(mEventList,this)
         addNewEvent()
     }
 
@@ -99,11 +98,16 @@ class MainCalendarActivity : AppCompatActivity() {
         }
     }
 
+    @OptIn(InternalCoroutinesApi::class)
     private fun changeRecyclerViewAdapter(chosenDate: String?){
+        eventDB = EventDatabase.getEventDatabase(this@MainCalendarActivity)
         if (chosenDate == null) return
         GlobalScope.launch{
+
             mEventList = eventDB.eventDao().findByDate(chosenDate)
         }
-        mBinding.recyclerView.adapter = EventAdapter(mEventList)
+        mBinding.recyclerView.adapter = EventAdapter(mEventList,this)
+        mBinding.recyclerView.requestLayout()
+
     }
 }

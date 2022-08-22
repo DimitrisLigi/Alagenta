@@ -48,7 +48,7 @@ class ClientRegisterActivity : AppCompatActivity() {
                 cal.set(Calendar.HOUR_OF_DAY, hourOfDay)
                 cal.set(Calendar.MINUTE,minute)
                chosenTime = hourOfDay.toString() + minute.toString()
-                binding.btnEventTimePicker.text = hourOfDay.toString()+ ":" + minute.toString()
+                binding.btnEventTimePicker.text = "$hourOfDay:$minute"
             }
 //            Toast.makeText(this,chosenTime,Toast.LENGTH_LONG).show()
             TimePickerDialog(this,timeSetListener,
@@ -69,7 +69,12 @@ class ClientRegisterActivity : AppCompatActivity() {
         if (address.isNotEmpty() && area.isNotEmpty() && name.isNotEmpty() && ring.isNotEmpty()
             && phone.isNotEmpty() && chosenTime!!.isNotEmpty()){
             val client = Client(null,address,area,name,ring,phone)
-            val event = Event(null,address,AppointmentType.MEASUREMENT,chosenTime,chosenDate)
+            val event = Event(eventID = null,
+                eventName = name,event_address = address,
+                eventAppointmentType = AppointmentType.MEASUREMENT,
+                eventTime = chosenTime,
+                eventDate = chosenDate,
+                eventPhone =  phone)
             GlobalScope.launch(Dispatchers.IO){
                 clientDB.clientDao().insertClient(client)
                 eventDB.eventDao().insertEvent(event)
