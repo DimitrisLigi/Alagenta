@@ -12,7 +12,6 @@ import kotlinx.coroutines.*
 import models.AppointmentType
 import models.Client
 import models.Event
-import java.text.SimpleDateFormat
 import java.util.*
 
 class ClientRegisterActivity : AppCompatActivity() {
@@ -22,7 +21,7 @@ class ClientRegisterActivity : AppCompatActivity() {
     private lateinit var eventDB: EventDatabase
     private var chosenDate: String? =  null
     private var chosenTime: String? = null
-    private val cal: Calendar = Calendar.getInstance()
+    private val mCalendar: Calendar = Calendar.getInstance()
 
     @OptIn(InternalCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,14 +44,14 @@ class ClientRegisterActivity : AppCompatActivity() {
         binding.btnEventTimePicker.setOnClickListener {
 
             val timeSetListener = TimePickerDialog.OnTimeSetListener { timepicker, hourOfDay, minute ->
-                cal.set(Calendar.HOUR_OF_DAY, hourOfDay)
-                cal.set(Calendar.MINUTE,minute)
+                mCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
+                mCalendar.set(Calendar.MINUTE,minute)
                chosenTime = hourOfDay.toString() + minute.toString()
                 binding.btnEventTimePicker.text = "$hourOfDay:$minute"
             }
 //            Toast.makeText(this,chosenTime,Toast.LENGTH_LONG).show()
             TimePickerDialog(this,timeSetListener,
-                cal.get(Calendar.HOUR_OF_DAY),cal.get(Calendar.MINUTE),false).show()
+                mCalendar.get(Calendar.HOUR_OF_DAY),mCalendar.get(Calendar.MINUTE),false).show()
         }
 
     }
