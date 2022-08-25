@@ -1,25 +1,21 @@
 package com.dimitrisligi.alagenta
 
-import adapters.ClientListAdapter
 import adapters.EventAdapter
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dimitrisligi.alagenta.databinding.ActivityMainCalendarBinding
 import db.ClientDatabase
 import db.EventDatabase
 import kotlinx.coroutines.*
-import models.Client
 import models.Event
 import java.text.SimpleDateFormat
 import java.util.*
 
 class MainCalendarActivity : AppCompatActivity() {
-
     //Binding
     private lateinit var mBinding: ActivityMainCalendarBinding
 
@@ -38,17 +34,17 @@ class MainCalendarActivity : AppCompatActivity() {
     //Chosen date on calendar
     private var chosenDate: String? = null
 
+    //Current Date
+    private var currentDate: String? = null
+
     //Progress bar
     private var progressBar: ProgressBar? = null
-
 
 
     //------------ON CREATE ACTIVITY--------------
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        getTheDB()
-        miasunartisi()
         mBinding = ActivityMainCalendarBinding.inflate(layoutInflater)
         progressBar = mBinding.pbLoading
         progressBar?.visibility = View.INVISIBLE
@@ -64,17 +60,29 @@ class MainCalendarActivity : AppCompatActivity() {
         addNewEvent()
     }
 
+
     @OptIn(InternalCoroutinesApi::class)
     private fun getTheDB(){
         var xxx: Job? = null
         xxx = GlobalScope.launch {
             eventDB = EventDatabase.getEventDatabase(this@MainCalendarActivity)
+            getCurrentDate()
         }
         while (xxx.isActive){
             progressBar?.visibility = View.VISIBLE
         }
         progressBar?.visibility = View.INVISIBLE
     }
+
+    @OptIn(DelicateCoroutinesApi::class)
+    private fun updateDatabase(){
+        var eventDBJob: Job? = null
+        eventDBJob = GlobalScope.launch {
+            eventDB = EventDatabase.getEventDatabase(this@MainCalendarActivity)
+        }
+
+    }
+
     override fun onResume() {
         super.onResume()
         getTheDB()
@@ -86,16 +94,16 @@ class MainCalendarActivity : AppCompatActivity() {
        }
         while (xxxs.isActive){
             GlobalScope.launch {
-                mEventList = eventDB.eventDao().findByDate(updateToCurrentDate())
+                mEventList = currentDate?.let { eventDB.eventDao().findByDate(it) }!!
             }
         }
 
 
     }
 
-    private fun updateToCurrentDate(): String {
+    private fun getCurrentDate(){
         val simpleDateFormat = SimpleDateFormat("ddMMyyyy", Locale.getDefault())
-        return simpleDateFormat.format(Date())
+        currentDate = simpleDateFormat.format(Date())
     }
 
     //Add Event
@@ -103,7 +111,7 @@ class MainCalendarActivity : AppCompatActivity() {
         mBinding.btnAddEvent.setOnClickListener {
             Intent(this,ClientRegisterActivity::class.java).also {
                 if (chosenDate == null){
-                    updateToCurrentDate()
+                    getCurrentDate()
                 }else{
                     it.putExtra("chosenDate",chosenDate)
                 }
@@ -136,7 +144,6 @@ class MainCalendarActivity : AppCompatActivity() {
                progressBar?.visibility = View.VISIBLE
            }
        }
-
 
         progressBar?.visibility = View.INVISIBLE
         mBinding.recyclerView.adapter = EventAdapter(mEventList,this)
